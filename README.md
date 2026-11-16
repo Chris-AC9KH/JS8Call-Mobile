@@ -2,12 +2,18 @@
 
 **User and Quick-Start Guide:**
 
+*Coming soon to the Apple App Store for iPadOS and Mac*
+
 **JS8Call-Mobile** is a full-featured amateur radio weak-signal digital mode client for iPadOS (and Mac Catalyst), built on the **JS8Core** engine. It allows licensed amateur radio operators to decode, compose, relay, and store-and-forward JS8 messages over a local network **TCI (Transceiver Control Interface)** connection or via direct iPad audio coupling.
 
 * **Author:** Chris Olson (AC9KH)
 * **License:** BSD 3-Clause (App) / MIT (JS8Core)
 * **Privacy Policy:** [View Privacy Policy](PRIVACY.md)
 * **Support & Bug Reports:** [GitHub Issues](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues)
+
+<p align="center">
+  <img src="images/js8call-mobile-ui.png" alt="JS8Call-Mobile iPad Interface showing Band Activity, Call Activity, and Waterfall" width="800">
+</p>
 
 ---
 
@@ -89,7 +95,7 @@ Open **Preferences and Settings** to configure unattended or semi-automated stat
 * **Enable Auto-Replies (AUTO):** When enabled, JS8Call-Mobile automatically responds to directed commands addressed to your callsign (or `@ALLCALL` queries where applicable) on your configured **Audio Offset**:
   * `[YOURCALL] SNR?` → Replies with the sender's signal report (`SNR +XX`).
   * `[YOURCALL] GRID?` → Replies with your configured Maidenhead grid square.
-  * `[YOURCALL] INFO?` → Replies with your custom **INFO? Response Msg**.[](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues)
+  * `[YOURCALL] INFO?` → Replies with your custom **INFO? Response Msg**.
   * `[YOURCALL] STATUS?` → Replies with your custom **STATUS? Response Msg**.
   * `[YOURCALL] HEARING?` → Replies with up to the 4 most recently heard callsigns (`HEARING CALL1 CALL2 CALL3 CALL4`).
   * `[YOURCALL] QUERY CALL [CALL]?` (or `@ALLCALL QUERY CALL [CALL]?`) → Replies with `YES [CALL] [SNR] [AGE]` if heard, or `NO` (for direct queries) if not heard.
@@ -105,8 +111,8 @@ Open **Preferences and Settings** to configure unattended or semi-automated stat
 
 ## URLs for App Store Connect & Settings
 
-* **User Guide: this document**[](https://github.com)
-* **Support:** [](https://github.com)via the issues list at [JS8Call-Mobile](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues)
+* **User Guide: this document**
+* **Support:** via the issues list at [JS8Call-Mobile](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues)
 * **[Privacy Policy](https://github.com/Chris-AC9KH/JS8Call-Mobile/blob/main/PRIVACY.md)**
 ---
 
