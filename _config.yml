@@ -1,0 +1,7 @@
+theme: jekyll-theme-cayman
+title: JS8Call-Mobile
+description: Amateur radio weak-signal digital mode client for iPadOS and Mac
+include:
+  - LICENSE.md
+exclude:
+  - LICENSE

@@ -1,0 +1,28 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Widen the main reading container on desktop screens */
+.main-content {
+  max-width: 80rem;
+}
+
+/* Tighten table font size and padding so columns stay compact */
+.main-content table {
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.main-content table th,
+.main-content table td {
+  padding: 0.5rem 0.75rem;
+}
+
+/* Keep the first two columns from wrapping awkwardly */
+.main-content table th:nth-child(1),
+.main-content table td:nth-child(1),
+.main-content table th:nth-child(2),
+.main-content table td:nth-child(2) {
+  white-space: nowrap;
+}

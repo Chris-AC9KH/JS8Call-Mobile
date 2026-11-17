@@ -2,7 +2,7 @@
 
 **Effective Date:** November 11, 2026  
 **Developer:** Chris Olson (AC9KH)  
-**Repository / Homepage:** [https://github.com/Chris-AC9KH/JS8Call-Mobile/](https://github.com/Chris-AC9KH/JS8Call-Mobile/)
+**Homepage:** [JS8Call-Mobile](https://chris-ac9kh.github.io/JS8Call-Mobile)
 
 ## Overview
 
@@ -30,7 +30,7 @@ JS8Call-Mobile does not integrate any third-party advertising networks, analytic
 
 ## Changes to This Policy
 
-If future updates to JS8Call-Mobile change how data is handled, this Privacy Policy will be updated accordingly at[](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues) [https://github.com/Chris-AC9KH/JS8Call-Mobile/blob/main/PRIVACY.md](https://github.com/Chris-AC9KH/JS8Call-Mobile/blob/main/PRIVACY.md)
+If future updates to JS8Call-Mobile change how data is handled, this Privacy Policy will be updated accordingly
 
 ## Contact
 

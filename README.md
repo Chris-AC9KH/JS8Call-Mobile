@@ -4,9 +4,9 @@
 
 *Coming soon to the Apple App Store for iPadOS and Mac*
 
-**JS8Call-Mobile** is a full-featured amateur radio weak-signal digital mode client for iPadOS (and Mac Catalyst), built on the **JS8Core** engine. It allows licensed amateur radio operators to decode, compose, relay, and store-and-forward JS8 messages over a local network **TCI (Transceiver Control Interface)** connection or via direct iPad audio coupling.
+**JS8Call-Mobile** is a full-featured amateur radio weak-signal digital mode client for iPadOS (also runs on Mac), built on the **JS8Core** engine. It allows licensed amateur radio operators to decode, compose, relay, and store-and-forward JS8 messages over a local network **TCI (Transceiver Control Interface)** connection or via direct iPad audio coupling.
 
-* **Author:** Chris Olson (AC9KH)
+* **Developer:** Chris Olson (AC9KH)
 * **License:** BSD 3-Clause (App) / MIT (JS8Core)
 * **Privacy Policy:** [View Privacy Policy](PRIVACY.md)
 * **Support & Bug Reports:** [GitHub Issues](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues)
@@ -19,13 +19,31 @@
 
 ## Features
 
-* **TCI Network Integration:** Connects directly over Wi-Fi/LAN to TCI-compatible Software Defined Radios (SDRs) and transceiver servers (such as ExpertSDR3, Thetis, and SunSDR), or FlexRadio with the open-source AetherSDR client for real-time VFO tuning, band preset switching, audio streaming, and PTT keying.
-* **Local iPad Audio Mode:** Decode and transmit JS8 signals using your iPad's built-in microphone/speaker or an external USB/Lightning audio interface when TCI is disconnected. For keying of the rig with local audio it requires a radio that supports VOX trigger over USB audio, or a compatible USB->analog audio interface to the rig.
+* **TCI Network Integration:** Connects directly over Wi-Fi/LAN to any TCI-compatible SDR server or client—including native TCI platforms (such as **ExpertSDR3**, **Thetis**, **SunSDR**, **AetherSDR**, **Quisk**, and **WFview**) as well as Marcus Roskosch's (DL8MRE) **Common-Radio** apps for macOS/iPadOS—providing real-time VFO tuning, band preset switching, audio streaming, and PTT keying across a wide range of transceivers.
+
+### Supported TCI Servers, Clients & Radios
+
+| TCI Server / SDR Client | Platform | Supported Transceivers & Hardware |
+| :--- | :--- | :--- |
+| **ExpertSDR3 / ExpertSDR2** | Windows, macOS, Linux | Expert Electronics SunSDR2 DX, SunSDR2 PRO, SunSDR2 QRP, MB1, ColibriDDC |
+| **Thetis** | Windows | Apache Labs ANAN series (OpenHPSDR protocol radios) and Hermes-Lite 2 |
+| **AetherSDR** | macOS, Linux | FlexRadio FLEX-6000 and FLEX-8000 Signature Series |
+| **Quisk** *(N2ADR)* | Windows, Linux, macOS | Hermes-Lite 2, HiQSDR, Odyssey, SoftRock, SDR-IQ, Perseus, and SoapySDR hardware |
+| **WFview** *(Custom TCI Build)* | macOS | Icom network- and USB-capable transceivers (IC-705, IC-7300, IC-7610, IC-7760, IC-9700, IC-R8600, IC-7850/7851) |
+| **SmartSDR for Mac / iOS** *(DL8MRE)* | macOS, iPadOS, iOS | FlexRadio FLEX-6000, FLEX-8000, and Aurora Series (local or SmartLink) |
+| **SDR-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Icom IC-705, IC-7300, IC-7300 MK2, IC-7610, IC-7760, IC-9700, IC-R8600 |
+| **FT-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Yaesu FTdx101D, FTdx101MP, FTdx10, FT-710 *(via Yaesu SCU-LAN10)* |
+| **TS-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Kenwood TS-890S *(via built-in LAN)* |
+| **K4-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Elecraft K4, K4D, K4HD |
+
+* **Local iPad Audio Mode:** Decode and transmit JS8 signals using your iPad's built-in microphone/speaker
+* **Using Non-TCI Transceivers:** Any radio with analog audio I/O (such as the Xiegu G90, older HF transceivers, or field QRP rigs) can still be used with JS8Call-Mobile in **Local iPad Audio Mode**. Simply connect a class-compliant USB sound card or USB-C audio interface (such as a Digirig or Sabrent USB audio adapter) to your iPad and enable **VOX** on your transceiver for PTT keying.
 * **Split Band & Call Activity Panes:** Separates general band monitoring (**Band Activity**) from directed messages, `@ALLCALL` broadcasts, and your own transmissions (**Call Activity**).
 * **Tap-to-Target QSOs & Command Helper:** Tap any incoming row in **Call Activity** to lock onto that station for a multi-turn QSO, or tap-and-hold (right-click on Mac) to open a categorized JS8 command helper menu.
-* **Multi-Frame Assembly & Speed Modes:** Automatically assembles multi-frame JS8 transmissions in place with UTC timestamps, audio offset (`Hz`), signal-to-noise ratio (`SNR`), callsign, submode (`S`, `N`, `F`, `40`, `60`), and frame status indicators (`[incomplete]`, `[checksum failed]`). NOTE: JS8Call-Mobile only supports transmitting in Slow, Normal or Fast modes since VOX won't work reliably with JS8 40 and JS8 60 modes due to clipping of leading symbols when using a VOX trigger.
+* **Multi-Frame Assembly & Speed Modes:** Automatically assembles multi-frame JS8 transmissions in place with UTC timestamps, audio offset (`Hz`), signal-to-noise ratio (`SNR`), callsign, submode (`S`, `N`, `F`, `40`, `60`), and frame status indicators (`[incomplete]`, `[checksum failed]`). **NOTE:** JS8Call-Mobile only supports transmitting in Slow, Normal or Fast modes since VOX won't work reliably with JS8 40 and JS8 60 modes due to clipping of leading symbols when using a VOX trigger to key your rig.
 * **Store-and-Forward Inbox & Live Relays:** Full support for storing messages in a local SQLite inbox, multi-hop relay routing (`>`), automatic `RETRIEVE MSG` notifications, and full JS8 directed command auto-replies.
 * **Live Waterfall & Passband Monitor:** Real-time spectrum waterfall (`500–3000 Hz`) with adjustable **Zero** floor, **Range**, **Flatten baseline** toggle, and visual TX audio offset marker.
+* **New for v1.1.x & Later:** Saves **Band Activity** and **Call Activity** logs for each band, persistent on app shutdown and restart, until they are cleared using the **Clear Band/Call Log** buttons. Will store up to 400 records for each log, for each band.
 
 ---
 
@@ -37,17 +55,22 @@
 3. Tap **Done** to save. Your settings are stored locally on your iPad.
 
 ### 2. Choose Your Audio / Radio Connection
-JS8Call-Mobile supports two operating modes:
+JS8Call-Mobile supports three operating modes:
 
-* **Option A: TCI Network Connection (Recommended)**
-  1. Open **Preferences and Settings** and enter your TCI server's **IP Address** (or `.local` hostname) and **Connection Port** (default `40001` or `50001`).
+* **Option A: TCI Network Connection (recommended)**
+  1. Open **Preferences and Settings** and enter your TCI server's **IP Address** (or `.local` hostname) and **Connection Port** (default **`40001`** for most TCI clients including DL8MRE Common-Radio apps, or `50001` on some ExpertSDR/Thetis/AetherSDR and WFview setups).
   2. Ensure **Use iPad audio when TCI is disconnected** is turned off. Only use this if you intend to use USB or mic/speaker audio.
   3. On the main **Control Console**, tap **Connect TCI**. The status dot will turn green (**Connected**) and your active VFO frequency will appear at the top.
 
-* **Option B: Local iPad Audio Coupling**
+ **Option B: USB Audio Connection**
   1. Open **Preferences and Settings** and enable **Use iPad audio when TCI is disconnected**.
   2. Grant microphone permission when prompted by iPadOS.
-  3. Use a USB audio interface connected to your transceiver or acoustic coupling near your radio's speaker/mic.
+  3. Use a USB-C or Lightning to analog audio interface connected to your iPad.
+
+* **Option C: Local iPad Audio Coupling**
+  1. Open **Preferences and Settings** and enable **Use iPad audio when TCI is disconnected**.
+  2. Grant microphone permission when prompted by iPadOS.
+  3. Use acoustic coupling near your radio's speaker/mic.
 
 ---
 
@@ -57,13 +80,14 @@ JS8Call-Mobile supports two operating modes:
 * **Inbox (`📥`):** Opens your stored message inbox. A red badge displays the count of unread messages addressed to your callsign. You can compose outbound store-and-forward messages, read received messages, and manage stored traffic.
 * **Connect TCI / Disconnect:** Opens or closes the network socket to your TCI server. A red **TX** badge appears next to the status indicator whenever the transmitter is keyed.
 * **TUNE:** Transmits a continuous carrier tone at your selected **Audio Offset** frequency so you can tune an antenna tuner or verify RF output. Tap **TUNING...** again to stop *(requires active TCI connection, tune is disabled for iPad audio)*.
-* **SEND HEARTBEAT:** Broadcasts an `@HB HEARTBEAT [GRID]` frame on a clear frequency automatically chosen inside the `500–950 Hz` heartbeat sub-band.
+* **SEND HEARTBEAT:** Broadcasts an `@HB HEARTBEAT [GRID]` frame on a clear frequency automatically chosen inside the `500–1000 Hz` heartbeat sub-band.
 * **TX Mode Speed:** Selects your outbound transmit submode: **Slow (30s)**, **Normal (15s)**, or **Fast (10s)**. Incoming frames are decoded across all supported submodes (`S`, `N`, `F`, `40`, `60`).
-* **Audio Offset (500–3000 Hz):** Sets your transmit audio tone frequency in 10 Hz steps, indicated by the vertical marker on the waterfall. Your offset remains locked where you set it for all directed transmissions and replies; only `@HB` broadcasts and `HEARTBEAT ACK` responses use the `500–950 Hz` heartbeat sub-band.
+* **Audio Offset (500–3000 Hz):** Sets your transmit audio tone frequency in 10 Hz steps, indicated by the vertical marker on the waterfall. Your offset remains locked where you set it for all directed transmissions and replies; only `@HB` broadcasts and `HEARTBEAT ACK` responses use the `500–1000 Hz` heartbeat sub-band.
 * **Waterfall Controls:**
-  * **Zero:** Adjusts the minimum signal floor (`dB`) displayed on the waterfall.
+  * **Zero:** Adjusts the minimum signal floor (`dB`) to remove "white noise" from the waterfall.
   * **Range:** Adjusts the dynamic contrast range (`dB`) of incoming signals.
   * **Flatten baseline:** Normalizes passband tilt across the receiver filter width.
+
 ---
 
 ## Reading & Composing Messages
@@ -76,6 +100,7 @@ The main log view is divided into two synchronized panes sharing the same column
   * **Orange text** indicates partial (`[incomplete]`) or corrupted (`[checksum failed]`) frames.
 * **Call Activity (Middle Pane):** Filters traffic down to QSO-relevant activity: incoming messages addressed to you, `@ALLCALL` traffic, and your own outgoing transmissions.
   * **Red text** indicates your own outgoing transmissions (`TX`).
+  * **NOTE:** JS8Call-Mobile does not display a EOT or End Of Transmission indicator. Incoming messages appear as greyed-out text followed by three dots ... until the message is complete, at which time the text switches to normal, indicating EOT.
 * **Follow / Clear Controls:**
   * **Follow** keeps both logs scrolled to the newest message (dragging either log manually pauses Follow until toggled back on).
   * **Clear Band Log** empties the top Band Activity pane.
@@ -100,24 +125,25 @@ Open **Preferences and Settings** to configure unattended or semi-automated stat
   * `[YOURCALL] HEARING?` → Replies with up to the 4 most recently heard callsigns (`HEARING CALL1 CALL2 CALL3 CALL4`).
   * `[YOURCALL] QUERY CALL [CALL]?` (or `@ALLCALL QUERY CALL [CALL]?`) → Replies with `YES [CALL] [SNR] [AGE]` if heard, or `NO` (for direct queries) if not heard.
   * `[YOURCALL] AGN?` → Re-transmits your most recent outgoing message to that station from **Call Activity**.
-  * `[YOURCALL] MSG [TEXT]` / `MSG TO:[CALL] [TEXT]` → Stores the message in your local SQLite inbox and replies with `ACK`.
+  * `[YOURCALL] MSG [TEXT]` / `MSG TO:[CALL] [TEXT]` → Stores the message in your local Message Inbox and replies with `ACK`.
   * `[YOURCALL] QUERY MSGS` / `QUERY MSG [ID]` → Advertises (`YES MSG ID #`) and delivers stored messages addressed to the requesting station, marking them read upon `ACK`.
   * `[YOURCALL]>[NEXTHOP] [TEXT]` → Automatically forwards multi-hop relay frames along the specified callsign path and routes returning `ACK` confirmations back to the originator.
-* **Push Retrieve Notices & Alerts:** When **Auto-Replies** is enabled, JS8Call-Mobile periodically notifies recently heard stations (`[CALL] RETRIEVE MSG [ID]`) if you are holding unread mail for them. When another station sends you a `RETRIEVE MSG` notice, an alert banner pops up with the exact `QUERY MSG` command needed to retrieve it.
-* **Enable Heartbeat ACK:** Automatically responds to incoming `@HB` broadcasts with a signal report (`HEARTBEAT SNR +XX`) on a clear `500–950 Hz` sub-band offset, with a built-in **55-minute cooldown** per callsign to prevent duplicate QRM.
-* **Hold PTT between frames of multi-frame messages:** Keeps the transmitter keyed continuously across frame boundaries during multi-frame transmissions instead of unkeying between frames. This only applies to TCI connected radios.
+* **Push Retrieve Notices & Alerts:** When **Auto-Replies** is enabled, JS8Call-Mobile periodically notifies recently heard stations (`[CALL] RETRIEVE MSG [ID]`) if you are holding unread mail for them. When another station sends you a `RETRIEVE MSG` notice, an alert banner pops up with the exact `QUERY MSG` command needed to retrieve it. If JS8Call-Mobile has sent a stored message notification to a station and the message is not retrieved, it will re-notify at most once every 8 hours if that station is seen on the band again.
+* **Enable Heartbeat ACK:** Automatically responds to incoming `@HB` broadcasts with a signal report (`HEARTBEAT SNR +XX`) on a clear `500–1000 Hz` sub-band offset. JS8Call-Mobile will not reply with a HB ACK to the same station more than once every 55 minutes.
+* **Hold PTT between frames of multi-frame messages:** Keeps the transmitter keyed continuously across frame boundaries during multi-frame transmissions instead of unkeying between frames. This only applies to TCI connected radios with CAT control.
 
 ---
 
-## URLs for App Store Connect & Settings
+## Support and Links
 
 * **User Guide: this document**
 * **Support:** via the issues list at [JS8Call-Mobile](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues)
-* **[Privacy Policy](https://github.com/Chris-AC9KH/JS8Call-Mobile/blob/main/PRIVACY.md)**
+* [**Privacy Policy**](PRIVACY.html)
+
 ---
 
 ## Acknowledgments & Licenses
 
-* **JS8Call-Mobile** is licensed under the **BSD 3-Clause License**. See [`LICENSE`](LICENSE) for full details.
+* **JS8Call-Mobile** is licensed under the **BSD 3-Clause License**. See [`LICENSE`](LICENSE.html) for full details.
 * Built using **[JS8Core](https://github.com/JS8Call-improved/JS8Core)**, licensed under the **MIT License** (Copyright © 2025 js8core contributors, © 2018 Jordan Sherer, © 2026 JS8Call Official).
 
