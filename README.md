@@ -90,7 +90,7 @@ JS8Call-Mobile supports three operating modes:
 
 ## TX Drive & Audio Gain Calibration
 
-iPad's can tend to put TCI audio that is very "hot". JS8Call-Mobile includes a logarithmic **TX Drive** attenuator (`-45.0 dB` to `0.0 dB`) in the Left Control Console. Proper TX Drive ensures a clean, narrow FSK/GFSK waveform without digital clipping, ALC overshoot, or passband splatter.
+iPad's can tend to produce TCI audio that is very "hot". JS8Call-Mobile includes a logarithmic **TX Drive** attenuator (`-45.0 dB` to `0.0 dB`) in the Left Control Console. Proper TX Drive ensures a clean, narrow FSK/GFSK waveform without digital clipping, ALC overshoot, or passband splatter.
 
 ### Why Gain Staging Matters
 Digital mode transmissions require a completely linear audio path from the iPad to the transceiver's modulator. If the incoming TCI audio stream exceeds `0 dBFS` or overdrives the radio's audio input, the rig's ALC circuit clamps down on the signal, creating wide harmonic spurs and horizontal flashes across the passband.
