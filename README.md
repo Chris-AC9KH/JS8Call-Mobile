@@ -88,6 +88,22 @@ JS8Call-Mobile supports three operating modes:
   * **Range:** Adjusts the dynamic contrast range (`dB`) of incoming signals.
   * **Flatten baseline:** Normalizes passband tilt across the receiver filter width.
 
+## TX Drive & Audio Gain Calibration
+
+iPad's can tend to put TCI audio that is very "hot". JS8Call-Mobile includes a logarithmic **TX Drive** attenuator (`-45.0 dB` to `0.0 dB`) in the Left Control Console. Proper TX Drive ensures a clean, narrow FSK/GFSK waveform without digital clipping, ALC overshoot, or passband splatter.
+
+### Why Gain Staging Matters
+Digital mode transmissions require a completely linear audio path from the iPad to the transceiver's modulator. If the incoming TCI audio stream exceeds `0 dBFS` or overdrives the radio's audio input, the rig's ALC circuit clamps down on the signal, creating wide harmonic spurs and horizontal flashes across the passband.
+
+### Step-by-Step Calibration (Zero ALC Method)
+1. **Select Data Mode:** Set your transceiver to **USB-D** (USB Data) with a **3.0 kHz (WIDE)** TX filter so voice processing, compression, and microphone equalizers are bypassed.
+2. **Set a Safe Hardware Power Ceiling:** Set your transceiver's **RF Power** control to your desired maximum operating power (for example, **7%–25%** on a 100W rig for QRP/low-power operation). Avoid leaving RF Power at 100% while throttling audio down to a few watts, as any stray audio transient could momentarily transmit at full power.
+3. **Set Radio USB Audio Input:** Set your radio's USB modulation level (such as `USB MOD Level` on Icom transceivers) to a moderate mid-low range, typically **25%–40%**.
+4. **Start Low on TX Drive:** In JS8Call-Mobile's Control Console, start with the **TX Drive** slider around **-20.0 dB**.
+5. **Key a Test Carrier:** Tap **TUNE** in JS8Call-Mobile (preferably into a dummy load or on a clear frequency) while watching your radio's **ALC** and **Po (Power)** meters.
+6. **Dial In Output Power:** Slowly raise the **TX Drive** slider until your wattmeter reaches your target output power while the **ALC meter shows zero bars** (or barely flickers at the very bottom edge of the scale).
+7. **Stop Tuning:** Tap **TUNING...** again to release PTT. Your calibrated **TX Drive** level is saved automatically.
+
 ---
 
 ## Reading & Composing Messages
