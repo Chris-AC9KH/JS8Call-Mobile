@@ -11,10 +11,6 @@
 * **Privacy Policy:** [View Privacy Policy](PRIVACY.md)
 * **Support & Bug Reports:** [GitHub Issues](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues)
 
-<p align="center">
-  <img src="images/js8call-mobile-ui.png" alt="JS8Call-Mobile iPad Interface showing Band & Call Activity, Directed Messages, and Waterfall" width="800">
-</p>
-
 ---
 
 ## Features
@@ -91,6 +87,7 @@ JS8Call-Mobile supports three operating modes:
   * **Zero:** Adjusts the minimum signal floor (`dB`) to remove "white noise" from the waterfall.
   * **Range:** Adjusts the dynamic contrast range (`dB`) of incoming signals.
   * **Flatten baseline:** Normalizes passband tilt across the receiver filter width.
+  * **Abort Transmission** A Tx timer indicator will appear on the waterfall indicating wait time until Tx begins, and total remaining time to the end of the last frame once Tx starts. Tap or click the indicator to abort your transmission if desired.
 
 ## TX Drive & Audio Gain Calibration
 
