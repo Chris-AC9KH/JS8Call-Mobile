@@ -12,7 +12,7 @@
 * **Support & Bug Reports:** [GitHub Issues](https://github.com/Chris-AC9KH/JS8Call-Mobile/issues)
 
 <p align="center">
-  <img src="images/js8call-mobile-ui.png" alt="JS8Call-Mobile iPad Interface showing Band Activity, Call Activity, and Waterfall" width="800">
+  <img src="images/js8call-mobile-ui.png" alt="JS8Call-Mobile iPad Interface showing Band & Call Activity, Directed Messages, and Waterfall" width="800">
 </p>
 
 ---
@@ -38,21 +38,21 @@
 
 * **Local iPad Audio Mode:** Decode and transmit JS8 signals using your iPad's built-in microphone/speaker
 * **Using Non-TCI Transceivers:** Any radio with analog audio I/O (such as the Xiegu G90, older HF transceivers, or field QRP rigs) can still be used with JS8Call-Mobile in **Local iPad Audio Mode**. Simply connect a class-compliant USB sound card or USB-C audio interface (such as a Digirig or Sabrent USB audio adapter) to your iPad and enable **VOX** on your transceiver for PTT keying.
-* **Split Band & Call Activity Panes:** Separates general band monitoring (**Band Activity**) from directed messages, joined `@GROUP` traffic, `@ALLCALL` broadcasts, and your own transmissions (**Call Activity**).
-* **Tap-to-Target QSOs & Command Helper:** Tap any incoming row in **Call Activity** to lock onto that station for a multi-turn QSO, or tap-and-hold (right-click on Mac) to open a categorized JS8 command helper menu.
-* **Multi-Frame Assembly & Speed Modes:** Automatically assembles multi-frame JS8 transmissions in place with UTC timestamps, audio offset (`Hz`), signal-to-noise ratio (`SNR`), callsign, submode (`S`, `N`, `F`, `40`, `60`), and frame status indicators (`[incomplete]`, `[checksum failed]`). **NOTE:** JS8Call-Mobile only supports transmitting in Slow, Normal or Fast modes since VOX won't work reliably with JS8 40 and JS8 60 modes due to clipping of leading symbols when using a VOX trigger to key your rig.
-* **Store-and-Forward Inbox & Live Relays:** Full support for storing messages in a local SQLite inbox, multi-hop relay routing (`>`), automatic `RETRIEVE MSG` notifications, and full JS8 directed command auto-replies.
+* **Split Band & Call Activity and Directed Messages Panes:** Separates general band monitoring (**Band & Call Activity**) from directed messages, joined `@GROUP` traffic, `@ALLCALL` broadcasts, and your own transmissions (**Directed Messages**).
+* **Tap-to-Target QSOs & Command Helper:** Tap any incoming row in **Directed Messages** or **Band & Call Activity **to lock onto that station for a multi-turn QSO, or tap-and-hold (right-click on Mac) to open a categorized JS8 command helper menu.
+* **Multi-Frame Assembly & Speed Modes:** Automatically assembles multi-frame JS8 transmissions in place with UTC timestamps, audio offset (`Hz`), signal-to-noise ratio (`SNR`), callsign, submode (`S`, `N`, `F`, `40`, `60`), and frame status indicators (`[incomplete]`, `[checksum failed]`). **NOTE:** JS8Call-Mobile only supports transmitting in Slow, Normal or Fast modes since VOX won't work reliably with JS8 40 and JS8 60 modes due to clipping of leading symbols when using a VOX trigger to key your rig. This is a design choice in JS8Call-Mobile since these modes are not used very often.
+* **Store-and-Forward Inbox & Live Relays:** Full support for storing messages in a local inbox, multi-hop relay routing (`>`), automatic `RETRIEVE MSG` notifications, and full JS8 directed command auto-replies.
 * **Live Waterfall & Passband Monitor:** Real-time spectrum waterfall (`0–3000 Hz`) with adjustable **Zero** floor, **Range**, **Flatten baseline** toggle, and visual TX audio offset marker.
-* **Saves Logs:** Band Activity and Call Activity logs are saved for each band, persistent on app shutdown and restart, until they are cleared using the **Clear Band/Call Log** buttons. Will store up to 400 records for each log, for each band.
+* **Saves Logs:** Band & Call Activity and Directed Messages logs are saved for each band, persistent on app shutdown and restart, until they are cleared using the **Clear Band/Call Log** buttons. Will store up to 400 records for each log, for each band. A numerical indicator at the right of each log header shows the number of records stored in the database for that band.
 * **Screen-Off Background Monitoring:** JS8Call-Mobile continues to run normally when you lock the iPad screen to conserve battery power during extended uptime. Automatically pauses speaker audio during incoming phone calls and resumes when the call ends.
-* **Group Callsigns (`@GROUP`):** Join one or more custom groups (such as `@EMCOMM`, `@ARES`, `@RACES`) to monitor group traffic in **Call Activity**, store group `MSG` broadcasts in your Inbox, and answer directed group queries.
+* **Group Callsigns (`@GROUP`):** Join one or more custom groups (such as `@EMCOMM`, `@ARES`, `@RACES`) to monitor group traffic in **Directed Messages**, store group `MSG` broadcasts in your Inbox, and answer directed group queries.
 
 ---
 
 ## Quick Start Guide
 
 ### 1. Configure Your Station Identity & Groups
-1. Tap the **Gear icon** (`⚙️`) in the top-right corner of the **Control Console** to open **Preferences and Settings**.
+1. Tap the **Gear icon** (`⚙️`) in the top-right corner of the **Controls** to open **Preferences and Settings**.
 2. Enter your **Station Callsign** (e.g., `AC9KH`) and **Grid Square** (4 or 6 characters, e.g., `EN45`).
 3. *(Optional)* Enter a comma-separated list of **Group Callsigns** you want to monitor (e.g., `@EMCOMM, @ARES`).
 4. Tap **Done** to save. Your settings are stored locally on your iPad.
@@ -103,7 +103,7 @@ Digital mode transmissions require a completely linear audio path from the iPad 
 1. **Select Data Mode:** Set your transceiver to **USB-D** (USB Data) with a **3.0 kHz (WIDE)** TX filter so voice processing, compression, and microphone equalizers are bypassed.
 2. **Set a Safe Hardware Power Ceiling:** Set your transceiver's **RF Power** control to your desired maximum operating power (for example, **7%–25%** on a 100W rig for QRP/low-power operation). Avoid leaving RF Power at 100% while throttling audio down to a few watts, as any stray audio transient could momentarily transmit at full power.
 3. **Set Radio USB Audio Input:** Set your radio's USB modulation level (such as `USB MOD Level` on Icom transceivers) to a moderate mid-low range, typically **25%–40%**.
-4. **Start Low on TX Drive:** In JS8Call-Mobile's Control Console, start with the **TX Drive** slider around **-20.0 dB**.
+4. **Start Low on TX Drive:** In JS8Call-Mobile's Controls, start with the **TX Drive** slider around **-20.0 dB**.
 5. **Key a Test Carrier:** Tap **TUNE** in JS8Call-Mobile (preferably into a dummy load or on a clear frequency) while watching your radio's **ALC** and **Po (Power)** meters.
 6. **Dial In Output Power:** Slowly raise the **TX Drive** slider until your wattmeter reaches your target output power while the **ALC meter shows zero bars** (or barely flickers at the very bottom edge of the scale).
 7. **Stop Tuning:** Tap **TUNING...** again to release PTT. Your calibrated **TX Drive** level is saved automatically.
@@ -115,20 +115,20 @@ Digital mode transmissions require a completely linear audio path from the iPad 
 ### Split Activity Logs
 The main log view is divided into two synchronized panes sharing the same columns (`UTC`, `Hz`, `SNR`, `Callsign`, `Mode`, `Message`):
 
-* **Band Activity (Top Pane):** Displays all decoded incoming traffic on the band.
+* **Band & Call Activity (Top Pane):** Displays all decoded incoming traffic on the band.
   * **Green-tinted rows** highlight messages addressed directly to your callsign, your joined `@GROUP` callsigns, or relayed through your station.
   * **Orange text** indicates partial (`[incomplete]`) or corrupted (`[checksum failed]`) frames.
-* **Call Activity (Middle Pane):** Filters traffic down to QSO-relevant activity: incoming messages addressed to you, joined `@GROUP` traffic, `@ALLCALL` traffic, and your own outgoing transmissions.
+* **Directed Messages (Middle Pane):** Filters traffic down to QSO-relevant activity: incoming messages addressed to you, joined `@GROUP` traffic, `@ALLCALL` traffic, and your own outgoing transmissions.
   * **Red text** indicates your own outgoing transmissions (`TX`).
   * **NOTE:** JS8Call-Mobile does not display an EOT or End Of Transmission indicator. Incoming messages appear as greyed-out text followed by three dots `…` until the message is complete, at which time the text switches to normal, indicating EOT.
 * **Follow / Clear Controls:**
   * **Follow** keeps both logs scrolled to the newest message (dragging either log manually pauses Follow until toggled back on).
-  * **Clear Band Log** empties the top Band Activity pane.
-  * **Clear Call Log** empties the middle Call Activity pane (and clears `AGN?` repeat history).
+  * **Clear Band Log** empties the top Band & Call Activity pane.
+  * **Clear Call Log** empties the middle Directed Messages pane (and clears `AGN?` repeat history).
 
 ### Tap-to-Target & Command Helper
-1. **Lock a Target Station:** Tap any incoming row in **Call Activity** to select that station. A blue **`To: CALLSIGN ×`** pill appears in the composition bar and stays locked across multi-turn exchanges until you tap **`×`**, tap the row again, or tap a different station.
-2. **Long-Press Command Helper:** Tap and hold (or right-click on Mac) any incoming row in **Call Activity** to open a categorized menu of JS8 directed commands (`SNR?`, `GRID?`, `INFO?`, `STATUS?`, `HEARING?`, `AGN?`, `MSG`, `MSG TO:`, `>`, `QUERY CALL`, `QUERY MSGS`, `QUERY MSG`, plus quick `SNR` and `GRID` reports). Selecting a command locks the target callsign and populates the text entry box so you can review or append text before sending.
+1. **Lock a Target Station:** Tap any incoming row in **Directed Messages** or **Band & Call Activity** to select that station. A blue `To: CALLSIGN ×` pill appears in the composition bar and stays locked across multi-turn exchanges until you tap **`×`**, tap the row again, or tap a different station.
+2. **Long-Press Command Helper:** Tap and hold (or right-click on Mac) any incoming row in **Directed Messages** or **Band & Call Activity** to open a categorized menu of JS8 directed commands (`SNR?`, `GRID?`, `INFO?`, `STATUS?`, `HEARING?`, `AGN?`, `MSG`, `MSG TO:`, `>`, `QUERY CALL`, `QUERY MSGS`, `QUERY MSG`, plus quick `SNR` and `GRID` reports). Selecting a command locks the target callsign and populates the text entry box so you can review or append text before sending.
 3. **Multi-Line Composition:** Type your message in the bottom bar and tap **TX Send** (or press **Return** on a hardware keyboard). The entry box expands vertically up to 5 lines as you type longer messages, and your station callsign prefix (`YOURCALL: `) is prepended automatically.
 
 ---
@@ -144,12 +144,12 @@ Open **Preferences and Settings** to configure unattended or semi-automated stat
   * `[YOURCALL] STATUS?` (or `[@GROUP] STATUS?`) → Replies with your custom **STATUS? Response Msg**.
   * `[YOURCALL] HEARING?` (or `[@GROUP] HEARING?`) → Replies with up to the 4 most recently heard callsigns (`HEARING CALL1 CALL2 CALL3 CALL4`).
   * `[YOURCALL] QUERY CALL [CALL]?` (or `[@GROUP] QUERY CALL [CALL]?`) → Replies with `YES [CALL] [SNR] [AGE]` if heard, or `NO` (for direct personal queries) if not heard.
-  * `[YOURCALL] AGN?` → Re-transmits your most recent outgoing message to that station from **Call Activity**.
+  * `[YOURCALL] AGN?` → Re-transmits your most recent outgoing message to that station from **Directed Messages**.
   * `[YOURCALL] MSG [TEXT]` / `MSG TO:[CALL] [TEXT]` → Stores the message in your local Message Inbox and replies with `ACK`.
-  * `[@GROUP] MSG [TEXT]` → Displays in **Call Activity** and stores the message in your local Message Inbox (`To: @GROUP`) without transmitting an `ACK` so multiple group members do not collide on air.
+  * `[@GROUP] MSG [TEXT]` → Displays in **Directed Messages** and stores the message in your local Message Inbox (`To: @GROUP`) without transmitting an `ACK` so multiple group members do not collide on air.
   * `[YOURCALL] QUERY MSGS` / `QUERY MSG [ID]` → Advertises (`YES MSG ID #`) and delivers stored messages addressed to the requesting station, marking them read upon `ACK`.
   * `[YOURCALL]>[NEXTHOP] [TEXT]` → Automatically forwards multi-hop relay frames along the specified individual callsign path and routes returning `ACK` confirmations back to the originator.
-* **`@ALLCALL` Broadcasts:** Incoming `@ALLCALL` messages are logged in **Call Activity** for monitoring, but JS8Call-Mobile never transmits an automated reply to an `@ALLCALL` broadcast.
+* **`@ALLCALL` Broadcasts:** Incoming `@ALLCALL` messages are logged in **Directed Messages** for monitoring, but JS8Call-Mobile never transmits an automated reply to an `@ALLCALL` broadcast.
 * **Push Retrieve Notices & Alerts:** When **Auto-Replies** is enabled, JS8Call-Mobile periodically notifies recently heard stations (`[CALL] RETRIEVE MSG [ID]`) if you are holding unread mail for them. When another station sends you a `RETRIEVE MSG` notice, an alert banner pops up with the exact `QUERY MSG` command needed to retrieve it. If JS8Call-Mobile has sent a stored message notification to a station and the message is not retrieved, it will re-notify at most once every 8 hours if that station is seen on the band again.
 * **Enable Heartbeat ACK:** Automatically responds to incoming `@HB` broadcasts with a signal report (`HEARTBEAT SNR +XX`) on a clear `500–1000 Hz` sub-band offset. JS8Call-Mobile will not reply with a HB ACK to the same station more than once every 55 minutes.
 * **Hold PTT between frames of multi-frame messages:** Keeps the transmitter keyed continuously across frame boundaries during multi-frame transmissions instead of unkeying between frames. This only applies to TCI connected radios with CAT control.
