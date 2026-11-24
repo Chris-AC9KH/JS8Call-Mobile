@@ -66,8 +66,8 @@ JS8Call-Mobile supports three operating modes:
 **[TCIBridge](https://github.com/Chris-AC9KH/TCIBridge)** is a free, open-source TCI Bridge developed by Chris AC9KH specifically for **JS8Call-Mobile**. It turns a Mac or Linux computer (such as a headless Raspberry Pi 4b/5 in your shack) into a **TCI 2.1** network server for over 240 Hamlib-supported transceivers using standard USB CAT and USB audio interfaces.
 
 1. **Install & Launch TCIBridge:**
-   * **macOS:** Download the prebuilt `.dmg` from the [TCIBridge Releases](https://github.com/Chris-AC9KH/TCIBridge/releases/tag/v1.0.1) and run it.
-   * **Linux / Raspberry Pi (`arm64`):** Install the `.deb` package from [TCIBridge Releases](https://github.com/Chris-AC9KH/TCIBridge/releases/tag/v1.0.1) (`sudo apt install ./tcibridge_*_arm64.deb`) to run TCIBridge automatically as a background `systemd` service on a Raspberry Pi4b or Pi5 TCI Server in your shack.
+   * **macOS:** Download the prebuilt `.dmg` from the [TCIBridge Releases](https://github.com/Chris-AC9KH/TCIBridge/releases/latest) and run it.
+   * **Linux / Raspberry Pi (`arm64`):** Install the `.deb` package from [TCIBridge Releases](https://github.com/Chris-AC9KH/TCIBridge/releases/latest) (`sudo apt install ./tcibridge_*_arm64.deb`) to run TCIBridge automatically as a background `systemd` service on a Raspberry Pi4b or Pi5 TCI Server in your shack.
 2. **Configure Rig & Audio:** Open `http://localhost:58080` if running on your Mac. If running on a Pi TCI server open `http://<server_IP_address:58080` in your web browser on any LAN computer or iPad. On iPad tap **Configure the Companion TCIBridge Radio Connection** in JS8Call-Mobile's Preferences. Select your transceiver model, serial port, baud rate, PTT method, and USB audio device. Click or tap the `Save & Apply Settings` button at the bottom.
 3. **Connect from JS8Call-Mobile:** In **Preferences and Settings** JS8Call-Mobile will automatically detect a running TCIBridge server, pick your discovered **TCI Bridge** server from the list (or enter its IP address with port **`50001`** manually), and tap **Connect TCI** on the main interface.
 
