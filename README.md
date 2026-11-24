@@ -15,7 +15,7 @@
 
 ## Features
 
-* **TCI Network Integration:** Connects directly over Wi-Fi/LAN to any TCI-compatible SDR server or client—including native TCI platforms (such as **ExpertSDR3**, **Thetis**, **SunSDR**, **AetherSDR**, **Quisk**, and **WFview**) as well as Marcus Roskosch's (DL8MRE) **Common-Radio** apps for macOS/iPadOS—providing real-time VFO tuning, band preset switching, audio streaming, and PTT keying across a wide range of transceivers.
+* **TCI Network Integration:** Connects directly over Wi-Fi/LAN to any TCI-compatible SDR server or client—including native TCI platforms (such as **ExpertSDR3**, **Thetis**, **SunSDR**, **AetherSDR**, **Quisk**, and **TCIBridge**) as well as Marcus Roskosch's (DL8MRE) **Common-Radio** apps for macOS/iPadOS—providing real-time VFO tuning, band preset switching, audio streaming, and PTT keying across a wide range of transceivers.
 
 ### Supported TCI Servers, Clients & Radios
 
@@ -25,7 +25,7 @@
 | **Thetis** | Windows | Apache Labs ANAN series (OpenHPSDR protocol radios) and Hermes-Lite 2 |
 | **AetherSDR** | macOS, Linux | FlexRadio FLEX-6000 and FLEX-8000 Signature Series |
 | **Quisk** *(N2ADR)* | Windows, Linux, macOS | Hermes-Lite 2, HiQSDR, Odyssey, SoftRock, SDR-IQ, Perseus, and SoapySDR hardware |
-| **WFview** *(Custom TCI Build)* | macOS | Icom network- and USB-capable transceivers (IC-705, IC-7300, IC-7610, IC-7760, IC-9700, IC-R8600, IC-7850/7851) |
+| **TCIBridge** *(AC9KH)* | macOS, Linux | Supports over 240 radios and more than 200 overall across hardware transceivers, receivers, SDRs, and virtual rig interfaces |
 | **SmartSDR for Mac / iOS** *(DL8MRE)* | macOS, iPadOS, iOS | FlexRadio FLEX-6000, FLEX-8000, and Aurora Series (local or SmartLink) |
 | **SDR-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Icom IC-705, IC-7300, IC-7300 MK2, IC-7610, IC-7760, IC-9700, IC-R8600 |
 | **FT-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Yaesu FTdx101D, FTdx101MP, FTdx10, FT-710 *(via Yaesu SCU-LAN10)* |
@@ -57,10 +57,19 @@
 JS8Call-Mobile supports three operating modes:
 
 * **Option A: TCI Network Connection (recommended)**
-  1. Open **Preferences and Settings** and enter your TCI server's **IP Address** (or `.local` hostname) and **Connection Port** (default **`40001`** for most TCI clients including DL8MRE Common-Radio apps, or `50001` on some ExpertSDR/Thetis/AetherSDR and WFview setups).
+  1. Open **Preferences and Settings** and enter your TCI server's **IP Address** (or `.local` hostname) and **Connection Port** (default **`40001`** for most TCI clients including DL8MRE Common-Radio apps, or `50001` on some ExpertSDR/Thetis/AetherSDR and TCIBridge setups).
   2. Ensure **Use iPad audio when TCI is disconnected** is turned off. Only use this if you intend to use USB or mic/speaker audio.
   3. By default, live TCI receive audio plays through the iPad's speaker so you can monitor band audio directly. To silence the iPad speaker during long unattended or screen-off monitoring sessions while keeping the TCI connection active, enable **Mute iPad audio when TCI is connected** in **Preferences and Settings**.
   4. On the main **Controls**, tap **Connect TCI**. The status dot will turn green (**Connected**) and your active VFO frequency will appear at the top. You can now press the iPad's power button to turn off the display and save battery while JS8Call-Mobile continues decoding and handling traffic in the background.
+
+### Using TCIBridge (Companion App by Chris AC9KH)
+**[TCIBridge](https://github.com/Chris-AC9KH/TCIBridge)** is a free, open-source TCI Bridge developed by Chris AC9KH specifically for **JS8Call-Mobile**. It turns a Mac or Linux computer (such as a headless Raspberry Pi 4b/5 in your shack) into a **TCI 2.1** network server for over 240 Hamlib-supported transceivers using standard USB CAT and USB audio interfaces.
+
+1. **Install & Launch TCIBridge:**
+   * **macOS:** Download the prebuilt `.dmg` from the [TCIBridge Releases](https://github.com/Chris-AC9KH/TCIBridge/releases/tag/v1.0.1) and run it.
+   * **Linux / Raspberry Pi (`arm64`):** Install the `.deb` package from [TCIBridge Releases](https://github.com/Chris-AC9KH/TCIBridge/releases/tag/v1.0.1) (`sudo apt install ./tcibridge_*_arm64.deb`) to run TCIBridge automatically as a background `systemd` service on a Raspberry Pi4b or Pi5 TCI Server in your shack.
+2. **Configure Rig & Audio:** Open `http://localhost:58080` if running on your Mac. If running on a Pi TCI server open `http://<server_IP_address:58080` in your web browser on any LAN computer or iPad. On iPad tap **Configure the Companion TCIBridge Radio Connection** in JS8Call-Mobile's Preferences. Select your transceiver model, serial port, baud rate, PTT method, and USB audio device. Click or tap the `Save & Apply Settings` button at the bottom.
+3. **Connect from JS8Call-Mobile:** In **Preferences and Settings** JS8Call-Mobile will automatically detect a running TCIBridge server, pick your discovered **TCI Bridge** server from the list (or enter its IP address with port **`50001`** manually), and tap **Connect TCI** on the main interface.
 
  **Option B: USB Audio Connection**
   1. Open **Preferences and Settings** and enable **Use iPad audio when TCI is disconnected**.
