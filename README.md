@@ -42,6 +42,7 @@
 * **Saves Logs:** Band & Call Activity and Directed Messages logs are saved for each band, persistent on app shutdown and restart, until they are cleared using the **Clear Band/Call Log** buttons. Will store up to 400 records for each log, for each band. A numerical indicator at the right of each log header shows the number of records stored in the database for that band.
 * **Screen-Off Background Monitoring:** JS8Call-Mobile continues to run normally when you lock the iPad screen to conserve battery power during extended uptime. Automatically pauses speaker audio during incoming phone calls and resumes when the call ends.
 * **Group Callsigns (`@GROUP`):** Join one or more custom groups (such as `@EMCOMM`, `@ARES`, `@RACES`) to monitor group traffic in **Directed Messages**, store group `MSG` broadcasts in your Inbox, and answer directed group queries.
+* **Split Mode** Software VFO and automated audio offset control (TCI only) that always modulates your audio in the 1500-2000 Hz "sweet spot" for most SSB transceivers, while keeping your actual transmit frequency on the band exactly where it is set.
 
 ---
 
