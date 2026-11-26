@@ -15,7 +15,7 @@
 
 ## Features
 
-* **TCI Network Integration:** Connects directly over Wi-Fi/LAN to any TCI-compatible SDR server or client—including native TCI platforms (such as **ExpertSDR3**, **Thetis**, **SunSDR**, **AetherSDR**, **Quisk**, and **TCIBridge**) as well as Marcus Roskosch's (DL8MRE) **Common-Radio** apps for macOS/iPadOS—providing real-time VFO tuning, band preset switching, audio streaming, and PTT keying across a wide range of transceivers.
+* **TCI Network Integration:** Connects directly over Wi-Fi/LAN to any TCI-compatible SDR server or client—including native TCI platforms (such as **ExpertSDR3**, **Thetis**, **SunSDR**, **AetherSDR**, **Quisk**, **OpenX6X00**, and **TCIBridge**) as well as Marcus Roskosch's (DL8MRE) **Common-Radio** apps for macOS/iPadOS—providing real-time VFO tuning, band preset switching, audio streaming, and PTT keying across a wide range of transceivers.
 
 ### Supported TCI Servers, Clients & Radios
 
@@ -31,6 +31,7 @@
 | **FT-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Yaesu FTdx101D, FTdx101MP, FTdx10, FT-710 *(via Yaesu SCU-LAN10)* |
 | **TS-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Kenwood TS-890S *(via built-in LAN)* |
 | **K4-Control** *(DL8MRE)* | macOS, iPadOS, iOS | Elecraft K4, K4D, K4HD |
+| **OpenX6X00** *(RF.Guru)* | Embedded (Xiegu Linux) | Xiegu X6100, X6200 *(via built-in TCI v2.0 server on port 50001)* |
 
 * **Local iPad Audio Mode:** Decode and transmit JS8 signals using your iPad's built-in microphone/speaker
 * **Using Non-TCI Transceivers:** Any radio with analog audio I/O (such as the Xiegu G90, older HF transceivers, or field QRP rigs) can still be used with JS8Call-Mobile in **Local iPad Audio Mode**. Simply connect a class-compliant USB sound card or USB-C audio interface (such as a Digirig or Sabrent USB audio adapter) to your iPad and enable **VOX** on your transceiver for PTT keying.
